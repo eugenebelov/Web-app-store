@@ -12,7 +12,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -25,51 +26,56 @@
     <![endif]-->
 
 
-    <div>
-        <header>
-            <div class="container">
-                <h3>Title</h3>
-                <ul class="top-menu jumbotron">
-                    <li>top-menu</li>
-                    <li>top-menu</li>
-                    <li>top-menu</li>
-                </ul>
-                <ul class="main-menu jumbotron">
-                    <li>menu-item</li>
-                    <li>menu-item</li>
-                    <li>menu-item</li>
-                    <li>menu-item</li>
-                </ul>
-                <div class="history-nav jumbotron">
-                    navigation-history-panel
-                </div>
-            </div>
-        </header>
-
-        <div class="content-holder clearfix">
-            <div class="container">
-                <div class="row marketing">
-                    <div class="col-lg-4 shop-item">
-                        <p>shop-item shop-item shop-item shop-item shop-item shop-item</p>
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Title</h3>
+                            <p>slogan</p>
+                        </div>                
+                        <nav class="top-menu col-md-8">
+                            <li><a href="">top-menu</a></li>
+                            <li><a href="">top-menu</a></li>
+                            <li><a href="">top-menu</a></li>
+                        </nav>   
                     </div>
-                    <div class="col-lg-4 shop-item">
-                        <p>shop-item shop-item shop-item shop-item shop-item shop-item</p>
-                    </div>
-                    <div class="shop-item col-lg-4">
-                        <p>shop-item shop-item shop-item shop-item shop-item shop-item</p>
-                    </div>
+                    <div class="header-row">
+                        <nav class="nav main-menu">
+                            <ul>
+                                <li><a href="#" class="main-menu-item">Home</a></li>
+                                <li><a href="#" class="main-menu-item">About</a></li>
+                                <li><a href="#" class="main-menu-item">Store</a></li>
+                                <li><a href="#" class="main-menu-item">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>    
                 </div>
             </div>
         </div>
-        
+    </header>
 
-        <footer class="footer">
-            <div class="container">
-                <h3>Title</h3>
-                <p>Contect info</p>
+    <div class="content-holder clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="history-nav">
+                    navigation-history-panel
+                </div>
             </div>
-        </footer>
+            <div class="row">
+                
+            </div>
+        </div>
     </div>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <h3>Title</h3>
+            <p>Contect info</p>
+        </div>
+    </footer>
 
 
     <!-- build:js scripts/vendor.js -->
