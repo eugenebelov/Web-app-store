@@ -1,22 +1,23 @@
-.bordershow {
-    border: solid 1px #000;
-}
+.bordershow { border: solid 1px #000; }
+header, footer { background-color: #f44c47; }
+header h3, header p { color: #FFF; }
 
-header, footer {
-    background-color: #f44c47;
-}
+h1 { 
+    font-weight:bold;
+    font-size: 37px;
+    margin: 0;
+    color: #3c3c3c; 
+    text-transform: uppercase; }
 
 ul {
     margin: 0;
-    padding: 0;
-}
+    padding: 0; }
 
 .header-row {
     background-color:#231f20;
-    position:relative;
-}
+    position:relative; }
 
-.header-row:before, .header-row:after {
+/*.header-row:before, .header-row:after {
     background:#231f20;
     content:"";
     display:block;
@@ -26,43 +27,74 @@ ul {
     top:0;
 }
 .header-row:before { left:-100%; }
-.header-row:after { right:-100%; }
+.header-row:after { right:-100%; }*/
 
 header .main-menu {
     color: #FFF;
     font-size: 16px;
     font-weight: bold;
-    text-transform: lowercase;
-}
-header .main-menu .main-menu-item {
-    color: #FFF;
-    padding: 6px 22px 5px;    
-}
+    text-transform: lowercase; }
 
-header .main-menu .main-menu-item:hover {
+header .main-menu .main-menu-item  {
+    color: #FFF;
+    padding: 6px 22px 5px; }
+
+header .main-menu .main-menu-item:hover  {
     background-color: #f44c47;
-    text-decoration: none;
-}
+    text-decoration: none; }
 
-.footer .container {
-    color: #FFF;
-}
-
-.content-holder .container {
-    background-color: #C8C8C8;
-}
+.footer .container { color: #FFF; }
+/*.content-holder .container { background-color: #eaeaea; }*/
 
 .shop-item {
     padding-left: 10px;
     margin-bottom: 10px;
-    background-color: #0080FF;
-}
+    background-color: #0080FF; }
 
 .top-menu {
     margin-top: 20px;
-    text-align: right;
+    text-align: right; }
+
+.top-menu li {
+    padding: 0 0 0 11px;
+    line-height: 20px; }
+
+.top-menu li:after {
+    content: "|";
+    font-size: 11px;
+    margin: 0 0 0 10px;
+    color: #9B9393; }
+
+.top-menu li:last-child:after {
+    content:" ";
+    margin: 0; }
+
+.top-menu li a:hover {
+    text-decoration: none;
+    color: #000; }
+
+.top-menu li a {
+    color: #FFF;
+    font-size: 13px; }
+
+
+.top-menu li, .main-menu li { display:inline-block; }
+
+.history-nav { 
+    padding: 23px 0 17px; 
+    background-color: #eaeaea;}
+
+.history-nav h1 { margin-bottom: 3px; }
+.history-nav ul { font-weight: bold; }
+.history-nav ul a {
+    color:#fe4f4a;
+    text-decoration: none;
+}
+.history-nav ul a:hover {
+    color:#000;
+    text-decoration: none;
 }
 
-.top-menu li, .main-menu li {
-    display:inline-block;
+.history-nav .icon-angle-right {
+    margin: 0 10px 0 0;
 }
