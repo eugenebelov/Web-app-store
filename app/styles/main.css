@@ -1,4 +1,3 @@
-.bordershow { border: solid 1px #000; }
 header, footer { background-color: #f44c47; }
 header h3, header p { color: #FFF; }
 
@@ -81,7 +80,7 @@ header .main-menu .main-menu-item:hover  {
 .top-menu li, .main-menu li { display:inline-block; }
 
 .history-nav { 
-    padding: 23px 0 17px; 
+    padding: 23px 0 17px 0; 
     background-color: #eaeaea;}
 
 .history-nav h1 { margin-bottom: 3px; }
@@ -97,4 +96,33 @@ header .main-menu .main-menu-item:hover  {
 
 .history-nav .icon-angle-right {
     margin: 0 10px 0 0;
+}
+
+.breadcrumb { text-transform:lowercase; }
+
+#content, #sidebar {
+    padding: 40px 0 0 0;
+}
+
+#content ul.products {
+    margin: 25px 0 0 -30px !important;
+    list-style: none;
+}
+
+#content ul.products li.product{
+    width: 270px;
+    background-color: #808000;
+    margin: 0 0 30px 20px;
+    /*position: relative;*/
+    /*text-align: left;*/
+    /*vertical-align: top;*/
+    background: #f5f4f7;
+    padding: 10px;
+    float: left;
+}
+
+.conten-holder 
+
+.bemybox {
+    border: solid 1px #000;
 }
