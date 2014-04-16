@@ -25,6 +25,67 @@ module.exports = function (grunt) {
             dist: 'dist'
         },
 
+        bowercopy: {
+            options: {
+                // Bower components folder will be removed afterwards
+                clean: false
+            }, 
+            // Javascript
+            libs: {
+                options: {
+                    destPrefix: 'app/scripts/libs'
+                },
+                files: {
+                    'angular.js': 'angular/angular.js',
+                    'jquery.js': 'jquery/dist/jquery.js',
+                    'bootstrap.js': 'bootstrap/dist/js/bootstrap.js',
+                    'plugins': 'bootstrap/js/'
+                },
+            },
+            // CSS
+            styles: {
+                options: {
+                    destPrefix: 'app/styles/libs'
+                },
+                files: {
+                    // Make dependencies follow your naming conventions
+                    '../fonts': 'bootstrap/dist/fonts/',
+                    'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
+                    'bootstrap.css.map': 'bootstrap/dist/css/bootstrap.css.map',
+                    'normalize.css': 'normalize.css/normalize.css',
+                    'bootstrap-theme.css': 'bootstrap/dist/css/bootstrap-theme.css'
+                }
+            }
+        },
+
+        // Copies remaining files to places other tasks can use
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>',
+                    dest: '<%= config.dist %>',
+                    src: [
+                        '*.{ico,png,txt}',
+                        '.htaccess',
+                        'images/{,*/}*.webp',
+                        '{,*/}*.html',
+                        'styles/fonts/{,*/}*.*',
+                        'bower_components/bootstrap/dist/fonts/*.*',
+                        'components/bootstrap/dist/fonts/*.*'
+                    ]
+                }]
+            },
+            styles: {
+                expand: true,
+                dot: true,
+                cwd: '<%= config.app %>/styles',
+                dest: '.tmp/styles/',
+                src: '{,*/}*.css'
+            }
+        },
+
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             bower: {
@@ -263,33 +324,6 @@ module.exports = function (grunt) {
         //     dist: {}
         // },
 
-        // Copies remaining files to places other tasks can use
-        copy: {
-            dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= config.app %>',
-                    dest: '<%= config.dist %>',
-                    src: [
-                        '*.{ico,png,txt}',
-                        '.htaccess',
-                        'images/{,*/}*.webp',
-                        '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*',
-                        'bower_components/bootstrap/dist/fonts/*.*'
-                    ]
-                }]
-            },
-            styles: {
-                expand: true,
-                dot: true,
-                cwd: '<%= config.app %>/styles',
-                dest: '.tmp/styles/',
-                src: '{,*/}*.css'
-            }
-        },
-
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
@@ -306,6 +340,8 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-bowercopy');
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {

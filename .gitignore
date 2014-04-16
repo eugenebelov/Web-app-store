@@ -3,6 +3,12 @@ dist
 .tmp
 .sass-cache
 app/bower_components
+bower_components
 test/bower_components
 test
 .bowerrc
+app/scripts/libs
+app/styles/libs
+app/styles/fonts
+webappstore.sublime-project
+webappstore.sublime-workspace

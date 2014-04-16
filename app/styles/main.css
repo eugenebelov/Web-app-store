@@ -1,3 +1,7 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
 header, footer { background-color: #f44c47; }
 header h3, header p { color: #FFF; }
 
@@ -192,7 +196,7 @@ header .main-menu li:hover  {
 .content-holder li.product a h4 {
     text-transform: uppercase;
     color: #7d7d7d;
-    font: 700 12px/20px 'Helvetica';
+    font: 700 12px/20px 'Ubuntu';
     letter-spacing: 1px;
     line-height: 12px;
     display:block;
@@ -200,13 +204,13 @@ header .main-menu li:hover  {
 
 .content-holder li.product .descr {
     color: #7d7d7d;
-    font: 400 12px/16px 'Helvetica';
+    font: 400 12px/16px 'Ubuntu';
     display: block;
 }
 
 .content-holder li.product .price {
     color: #3c3c3c;
-    font: 600 22px/34px 'Helvetica';
+    font: 600 22px/34px 'Ubuntu';
     display: block;    
     float: left;
 }
