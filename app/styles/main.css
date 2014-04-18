@@ -146,7 +146,7 @@ header .main-menu li:hover  {
     vertical-align: top;
     background: #f5f4f7;
     padding: 10px;
-    float: left;
+    display:inline-block;
 }
 
 .content-holder ul.products li.product .onsale {
