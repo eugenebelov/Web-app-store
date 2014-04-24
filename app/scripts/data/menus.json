@@ -1,0 +1,15 @@
+{
+	"topMenu": [
+		{"label":"registration"},
+		{"label":"log in"},
+		{"label":"my account"},
+		{"label":"checkout"}
+	],
+	
+	"mainMenu": [
+		{"label":"главная", "url":"/"},
+		{"label":"о нас", "url":"/about/"},
+		{"label":"магазин", "url":"/shop/"},
+		{"label":"контакты", "url":"/contact/"}
+	]
+}
