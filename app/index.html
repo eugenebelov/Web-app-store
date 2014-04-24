@@ -52,6 +52,7 @@
                     <div class="top-menu">
                         <ul>
                             <li ng-repeat="menu in topMenu"><a href="">{{menu.label}}</a></li>
+                            <li><a href="">корзина</a></li>
                         </ul>
                     </div>
                 </div>
@@ -83,7 +84,9 @@
                 <div class="col-md-12 col-xs-12">
                     <div class="col-md-9 col-xs-9" id="content">
                         <ul class="products">
-                            <li class="product" ng-repeat="item in products" product-view>{{item.label}}</li>
+                            <li class="product" ng-repeat="item in products">
+                                <p product-view item-data='item'>Product</p>
+                            </li>
                         </ul>
                         <nav class="pagination"></nav>
                     </div>

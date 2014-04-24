@@ -1,3 +1,5 @@
+"use strict"
+
 var shopApp = angular.module('shopApp', ["directives.product"]);
 
 shopApp.controller('shopController', function ($scope, $http) {

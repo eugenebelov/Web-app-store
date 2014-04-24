@@ -1,25 +1,26 @@
+'use strict'
+
 angular.module('directives.product', [])
 
 .directive('productView', function() {    
   return {
     restrict: 'A',
-    replace: false,
     scope: {
-    	label: '='
+    	itemData: '='
     },    
-    controller: function() {
-    	
+    controller: function($scope) {
+    	 
     },
     link: function(scope, element, attrs, controller) {
-    	console.log(scope);
+      
     },
     template:
-      '<a><span class="onsale" ng-show={{isSale}}>{{quantity}}</span>'+
-      '<img src="" alt="" width="150" height="150">'+
-      '<h4>{{label}}</h4>'+
+      '<a><span class="onsale" ng-show={{itemData.sale.isSale}}>{{itemData.sale.quantity}}</span>'+
+      '<img src="{{itemData.thumb}}" alt="" width="150" height="150">'+
+      '<h4>{{itemData.label}}</h4>'+
       '</a>'+
-      '<div class="descr">{{description}}</div>'+
-      '<span class="price">{{price}}</span>'+
+      '<div class="descr">{{itemData.description}}</div>'+
+      '<span class="price">{{itemData.price}}</span>'+
       '<a href="" class="btn btn-danger">Купить</a>'
   };
 });

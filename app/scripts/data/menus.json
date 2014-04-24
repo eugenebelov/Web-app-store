@@ -1,9 +1,8 @@
 {
 	"topMenu": [
-		{"label":"registration"},
-		{"label":"log in"},
-		{"label":"my account"},
-		{"label":"checkout"}
+		{"label":"регистрация"},
+		{"label":"вход"},
+		{"label":"my account"}
 	],
 	
 	"mainMenu": [
