@@ -51,8 +51,14 @@
                 <div class="col-md-8 col-xs-8">
                     <div class="top-menu">
                         <ul>
-                            <li ng-repeat="menu in topMenu"><a href="">{{menu.label}}</a></li>
-                            <li><a href="">корзина</a></li>
+                            <li ng-repeat="menu in topMenu">
+                                <a href="">{{menu.label}}</a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="glyphicon glyphicon-shopping-cart"></i><span class="badge">42</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
