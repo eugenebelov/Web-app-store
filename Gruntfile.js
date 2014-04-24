@@ -37,6 +37,8 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'angular.js': 'angular/angular.js',
+                    'angular-ui.js': 'angular-ui/build/angular-ui.js',
+                    'angular-ui-ieshiv.js': 'angular-ui/build/angular-ui-ieshiv.js',
                     'jquery.js': 'jquery/dist/jquery.js',
                     'bootstrap.js': 'bootstrap/dist/js/bootstrap.js',
                     'plugins': 'bootstrap/js/'
@@ -53,7 +55,8 @@ module.exports = function (grunt) {
                     'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
                     'bootstrap.css.map': 'bootstrap/dist/css/bootstrap.css.map',
                     'normalize.css': 'normalize.css/normalize.css',
-                    'bootstrap-theme.css': 'bootstrap/dist/css/bootstrap-theme.css'
+                    'bootstrap-theme.css': 'bootstrap/dist/css/bootstrap-theme.css',
+                    'angular-ui.css': 'angular-ui/build/angular-ui.css',
                 }
             }
         },

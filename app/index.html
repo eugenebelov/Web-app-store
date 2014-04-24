@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="ShopApp"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <title>Web app store</title>
@@ -20,8 +20,21 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="scripts/libs/angular.js"></script>
+    <script src="scripts/libs/angular-ui.js"></script>
+    <script src="scripts/libs/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
 </head>
-<body>
+<body ng-controller="ShopController">
     <!--[if lt IE 10]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -37,10 +50,7 @@
                 <div class="col-md-8 col-xs-8">
                     <div class="top-menu">
                         <ul>
-                            <li><a href="">registration</a></li>
-                            <li><a href="">log-in</a></li>
-                            <li><a href="">my account</a></li>
-                            <li><a href="">checkout</a></li>
+                            <li ng-repeat="menu in topMenu"><a href="">{{menu.label}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,20 +59,17 @@
         <nav class="main-menu">
             <div class="container">                
                 <ul>
-                    <li><a href="#" class="main-menu-item">Главная</a></li>
-                    <li><a href="#" class="main-menu-item">О Нас</a></li>
-                    <li><a href="#" class="main-menu-item">Магазин</a></li>
-                    <li><a href="#" class="main-menu-item">Контакты</a></li>
+                    <li ng-repeat="menu in mainMenu" ng-click="changeHistoryTitle(menu.label)"><a href="#" class="main-menu-item">{{menu.label}}</a></li>
                 </ul>
             </div>
         </nav>
-        <section class="history-nav">
+        <section class="history-nav" ng-model="historyTitle">
             <div class="container">
-                <h1>Shop</h1>
+                <h1>{{historyTitle}}</h1>
                 <ul>
-                    <a href="#">home</a>
+                    <a href="#">главная</a>
                     <i class="glyphicon glyphicon-chevron-right btn-xs"></i>
-                    shop
+                    {{historyTitle}}
                 </ul>
             </div>
         </section>
@@ -80,7 +87,7 @@
                                     <img src="http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png" alt="" width="150" height="150">
                                     <h4>Classic Laundry Green Graphic T-Shirt</h4>
                                 </a>
-                                <div class="descr">Short desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes here</div>
+                                <div class="descr">Short desrc goes here</div>
                                 <span class="price">100</span>
                                 <a href="" class="btn btn-danger">Купить</a>
                             </li>
@@ -161,11 +168,7 @@
     </footer>
 
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="scripts/libs/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+    
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -192,8 +195,5 @@
     <script src="scripts/libs/plugins/tab.js"></script>
     <!-- endbuild -->
 
-    <!-- build:js({app,.tmp}) scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
 </body>
 </html>
