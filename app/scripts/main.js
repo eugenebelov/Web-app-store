@@ -1,6 +1,6 @@
-var shopApp = angular.module('ShopApp', ["ShopApp.directives"]);
+var shopApp = angular.module('shopApp', ["directives.product"]);
 
-shopApp.controller('ShopController', function ($scope, $http) {
+shopApp.controller('shopController', function ($scope, $http) {
   $http.get('scripts/data/menus.json').success(function(data) {
     $scope.topMenu = data.topMenu;
     $scope.mainMenu = data.mainMenu;

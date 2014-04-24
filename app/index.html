@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" ng-app="ShopApp"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="shopApp"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <title>Web app store</title>
@@ -31,10 +31,11 @@
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/directives/directives.js"></script>
     <!-- endbuild -->
 
 </head>
-<body ng-controller="ShopController">
+<body ng-controller="shopController">
     <!--[if lt IE 10]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -82,62 +83,7 @@
                 <div class="col-md-12 col-xs-12">
                     <div class="col-md-9 col-xs-9" id="content">
                         <ul class="products">
-                            <li class="product">
-                                <a href="">
-                                    <img src="http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png" alt="" width="150" height="150">
-                                    <h4>Classic Laundry Green Graphic T-Shirt</h4>
-                                </a>
-                                <div class="descr">Short desrc goes here</div>
-                                <span class="price">100</span>
-                                <a href="" class="btn btn-danger">Купить</a>
-                            </li>
-                            <li class="product">
-                                <a href="#">
-                                    <span class="onsale">12</span>
-                                    <img src="http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png" alt="" width="150" height="150">
-                                    <h4>Classic Laundry Green Graphic T-Shirt</h4>
-                                </a>
-                                <div class="descr">Short desrc goes here</div>
-                                <span class="price">100</span>
-                                <a href="#" class="btn btn-danger">Купить</a>
-                            </li>
-                            <li class="product">
-                                <a href="#">
-                                    <span class="onsale">10</span>
-                                    <img src="http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png" alt="" width="150" height="150">
-                                    <h4>Classic Laundry Green Graphic T-Shirt</h4>
-                                </a>
-                                <div class="descr">Short desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes hereShort desrc goes here</div>
-                                <span class="price">100</span>
-                                <a href="#" class="btn btn-danger">Купить</a>
-                            </li>
-                            <li class="product">
-                                <a href="#">
-                                    <img src="http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png" alt="" width="150" height="150">
-                                    <h4>Classic Laundry Green Graphic T-Shirt</h4>
-                                </a>
-                                <div class="descr">Short desrc goes here</div>
-                                <span class="price">100</span>
-                                <a href="#" class="btn btn-danger">Купить</a>
-                            </li>
-                            <li class="product">
-                                <a href="#">
-                                    <img src="http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png" alt="" width="150" height="150">
-                                    <h4>Classic Laundry Green Graphic T-Shirt</h4>
-                                </a>
-                                <div class="descr">Short desrc goes here</div>
-                                <span class="price">104</span>
-                                <a href="#" class="btn btn-danger">Купить</a>
-                            </li>
-                            <li class="product">
-                                <a href="#">
-                                    <img src="http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png" alt="" width="150" height="150">
-                                    <h4>Classic Laundry Green Graphic T-Shirt</h4>
-                                </a>
-                                <div class="descr">Short desrc goes here</div>
-                                <span class="price">105</span>
-                                <a href="#" class="btn btn-danger">Купить</a>
-                            </li>
+                            <li class="product" ng-repeat="item in products" product-view>{{item.label}}</li>
                         </ul>
                         <nav class="pagination"></nav>
                     </div>
