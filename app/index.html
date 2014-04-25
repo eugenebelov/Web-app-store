@@ -55,8 +55,8 @@
                                 <a href="">{{menu.label}}</a>
                             </li>
                             <li>
-                                <a href="">
-                                    <i class="glyphicon glyphicon-shopping-cart"></i><span class="badge">42</span>
+                                <a href="#/view_cart" ng-click="showShoppingCart()">
+                                    <i class="glyphicon glyphicon-shopping-cart"></i><span class="badge">{{cart.length}}</span>
                                 </a>
                             </li>
                         </ul>
@@ -91,10 +91,10 @@
                     <div class="col-md-9 col-xs-9" id="content">
                         <ul class="products">
                             <li class="product" ng-repeat="item in products">
-                                <p product-view item-data='item'>Product</p>
+                                <product-view item-data='item' move-to-cart="addToCart(item.id)"/>
                             </li>
                         </ul>
-                        <nav class="pagination"></nav>
+                        <pagination total-items="totalItems" page="currentPage"></pagination>
                     </div>
                     <aside class="col-md-3 col-xs-3" id="sidebar">
                         <div class="widgets">

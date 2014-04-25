@@ -7,7 +7,7 @@
     "bootstrap": "~3.1.1",
     "jquery": "~1.11.0",
     "angular": "",
-    "angular-ui": "",
+    "angular-ui-bootstrap": "",
     "normalize.css": "~3.0.1"
   },
   "devDependencies": {}

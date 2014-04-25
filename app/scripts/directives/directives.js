@@ -1,18 +1,21 @@
-'use strict'
+'use strict';
 
 angular.module('directives.product', [])
 
 .directive('productView', function() {    
   return {
-    restrict: 'A',
+    restrict: 'E',
     scope: {
-    	itemData: '='
-    },    
-    controller: function($scope) {
-    	 
+    	itemData: '=',
+    	moveToCart: '&'
     },
-    link: function(scope, element, attrs, controller) {
-      
+    controller: function($scope, $element, $attrs) {
+    	$scope.buyProduct = function (id) {
+    		$scope.moveToCart(id);
+    	}
+    },
+    link: function (scope, iElement, iAttrs) {
+
     },
     template:
       '<a><span class="onsale" ng-show={{itemData.sale.isSale}}>{{itemData.sale.quantity}}</span>'+
@@ -21,6 +24,22 @@ angular.module('directives.product', [])
       '</a>'+
       '<div class="descr">{{itemData.description}}</div>'+
       '<span class="price">{{itemData.price}}</span>'+
-      '<a href="" class="btn btn-danger">Купить</a>'
+      '<a href="#/{{itemData.id}}" id="buy{{itemData.id}}" class="btn btn-danger" ng-click="buyProduct(itemData.id)">Купить</a>'
+  };
+})
+
+.directive('shoppingCartView', function() {    
+  return {
+    restrict: 'E',
+    controller: function($scope, $element, $attrs) {
+    	$scope.buyProduct = function (id) {
+    		$scope.moveToCart(id);
+    	}
+    },
+    link: function (scope, iElement, iAttrs) {
+
+    },
+    template:
+      '<div>cart item view</div>'
   };
 });
