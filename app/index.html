@@ -14,28 +14,15 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="styles/libs/bootstrap.css">
     <link rel="stylesheet" href="styles/libs/normalize.css">
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="scripts/libs/angular.js"></script>
-    <script src="scripts/libs/angular-ui.js"></script>
-    <script src="scripts/libs/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js({app,.tmp}) scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <script src="scripts/directives/directives.js"></script>
-    <!-- endbuild -->
-
 </head>
-<body ng-controller="shopController">
+<body ng-controller="ApplicationController">
     <!--[if lt IE 10]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -55,8 +42,9 @@
                                 <a href="">{{menu.label}}</a>
                             </li>
                             <li>
-                                <a href="#/view_cart" ng-click="showShoppingCart()">
-                                    <i class="glyphicon glyphicon-shopping-cart"></i><span class="badge">{{cart.length}}</span>
+                                <a href="#!/view-cart" ng-click="showShoppingCart()">
+                                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                                    <span class="badge">{{cart.length}}</span>
                                 </a>
                             </li>
                         </ul>
@@ -67,7 +55,7 @@
         <nav class="main-menu">
             <div class="container">                
                 <ul>
-                    <li ng-repeat="menu in mainMenu" ng-click="changeHistoryTitle(menu.label)"><a href="#" class="main-menu-item">{{menu.label}}</a></li>
+                    <li ng-repeat="menu in mainMenu" ng-click="changeHistoryTitle(menu.label)"><a href="#{{menu.url}}" class="main-menu-item">{{menu.label}}</a></li>
                 </ul>
             </div>
         </nav>
@@ -89,12 +77,9 @@
             <div class="row">
                 <div class="col-md-12 col-xs-12">
                     <div class="col-md-9 col-xs-9" id="content">
-                        <ul class="products">
-                            <li class="product" ng-repeat="item in products">
-                                <product-view item-data='item' move-to-cart="addToCart(item.id)"/>
-                            </li>
-                        </ul>
-                        <pagination total-items="totalItems" page="currentPage"></pagination>
+                        <div ng-view>
+                            Views   
+                        </div>
                     </div>
                     <aside class="col-md-3 col-xs-3" id="sidebar">
                         <div class="widgets">
@@ -123,17 +108,14 @@
     </footer>
 
 
-    
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="scripts/libs/angular.js"></script>
+    <script src="scripts/libs/angular-route.js"></script>
+    <script src="scripts/libs/angular-ui.js"></script>
+    <script src="scripts/libs/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
     <!-- build:js scripts/plugins.js -->
     <script src="scripts/libs/plugins/affix.js"></script>
@@ -148,6 +130,12 @@
     <script src="scripts/libs/plugins/scrollspy.js"></script>
     <script src="scripts/libs/plugins/collapse.js"></script>
     <script src="scripts/libs/plugins/tab.js"></script>
+    <!-- endbuild -->
+
+
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/directives/directives.js"></script>
     <!-- endbuild -->
 
 </body>

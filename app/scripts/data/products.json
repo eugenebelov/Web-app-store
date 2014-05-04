@@ -5,7 +5,7 @@
 			"label":"Classic Laundry Green Graphic T-Shirt",
 			"description":"Short desrc goes here",
 			"price":"100",
-			"thumb":"http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
 			"sale": {
 				"isSale":"true",
 				"quantity":"12"
@@ -16,7 +16,7 @@
 			"label":"Classic Laundry Green Graphic T-Shirt",
 			"description":"Short desrc goes here",
 			"price":"200",
-			"thumb":"http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
 			"sale": {
 				"isSale":"false",
 				"quantity":"12"
@@ -27,7 +27,7 @@
 			"label":"Classic Laundry Green Graphic T-Shirt",
 			"description":"Short desrc goes here",
 			"price":"300",
-			"thumb":"http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
 			"sale": {
 				"isSale":"false",
 				"quantity":"12"
@@ -38,7 +38,7 @@
 			"label":"Classic Laundry Green Graphic T-Shirt",
 			"description":"Short desrc goes here",
 			"price":"400",
-			"thumb":"http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
 			"sale": {
 				"isSale":"false",
 				"quantity":"12"
@@ -49,7 +49,7 @@
 			"label":"Classic Laundry Green Graphic T-Shirt",
 			"description":"Short desrc goes here",
 			"price":"400",
-			"thumb":"http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
 			"sale": {
 				"isSale":"true",
 				"quantity":"9"
@@ -60,7 +60,7 @@
 			"label":"Classic Laundry Green Graphic T-Shirt",
 			"description":"Short desrc goes here",
 			"price":"400",
-			"thumb":"http://livedemo00.template-help.com/woocommerce_48036/wp-content/uploads/2013/09/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
 			"sale": {
 				"isSale":"false",
 				"quantity":"12"

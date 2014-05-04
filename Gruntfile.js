@@ -37,6 +37,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'angular.js': 'angular/angular.js',
+                    'angular-route.js': 'angular-route/angular-route.js',
                     'angular-ui.js': 'angular-ui/build/angular-ui.js',
                     'angular-ui-ieshiv.js': 'angular-ui/build/angular-ui-ieshiv.js',
                     'jquery.js': 'jquery/dist/jquery.js',
@@ -97,7 +98,7 @@ module.exports = function (grunt) {
             },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
-                // tasks: ['jshint'],
+                // tasks: ['concat'],
                 options: {
                     livereload: true
                 }
@@ -119,6 +120,7 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= config.app %>/{,*/}*.html',
+                    '<%= config.app %>/views/{,*/}*.html',
                     '.tmp/styles/{,*/}*.css',
                     '<%= config.app %>/images/{,*/}*'
                 ]
@@ -324,7 +326,10 @@ module.exports = function (grunt) {
         //     }
         // },
         // concat: {
-        //     dist: {}
+        //     dist: {
+        //         src: ['<%= config.app %>/scripts/libs/**/*.js'],
+        //         dest: '<%= config.app %>/scripts/vendor.js'
+        //     }
         // },
 
         // Run some tasks in parallel to speed up build process
