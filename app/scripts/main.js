@@ -7,37 +7,38 @@ shopApp.config(['$routeProvider', '$locationProvider',
 
 		$location.hashPrefix('!');
 
-	  $routes
-	  	.when('/', {
-	    	templateUrl: '/views/main/',
-	    	pageindex: 0
-	    })
-	  	.when('/about/', {
-	  		templateUrl: '/views/about/',
-	  		pageindex: 1
-	  	})
-	    .when('/shop/', {
-	    	templateUrl: '/views/shop/',
-	    	controller: 'ShopController',
-	    	pageindex: 2
-	    })
-	    .when('/contact/', {
-	    	templateUrl: '/views/contacts/',
-	    	pageindex: 3
-	    })
-	    .when('/view-cart/', {
-	    	templateUrl: '/views/shopping-cart/',
-	    	pageindex: 3
-	    })
-	    .otherwise({
-        redirectTo: '/!#'
-      });
+		$routes
+			.when('/', {
+			templateUrl: '/views/main/',
+			pageindex: 0
+		})
+			.when('/about/', {
+				templateUrl: '/views/about/',
+				pageindex: 1
+			})
+		.when('/shop/', {
+			templateUrl: '/views/shop/',
+			controller: 'ShopController',
+			pageindex: 2
+		})
+		.when('/contact/', {
+			templateUrl: '/views/contacts/',
+			pageindex: 3
+		})
+		.when('/view-cart/', {
+			templateUrl: '/views/shopping-cart/',
+			controller: 'ShopController',
+			pageindex: 3
+		})
+		.otherwise({
+			redirectTo: '/!#'
+		});
 }]);
 
 shopApp.controller('ApplicationController', ['$scope', '$http', '$route', function ($scope, $http, $route) {
 	$scope.totalItems = 64;
-  $scope.currentPage = 4;
-  $scope.cart = [];
+  	$scope.currentPage = 4;
+  	$scope.cart = [];
 
 	$http.get('scripts/data/menus.json').success(function(data) 
 	{
@@ -49,6 +50,11 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route', functi
 	$http.get('scripts/data/products.json').success(function(data) 
 	{
 		$scope.products = data.products;
+	});
+
+	$http.get('scripts/data/products-in-cart.json').success(function(data) 
+	{
+		$scope.cart = data.inCart;
 	});
 
 	$scope.changeHistoryTitle = function(label) 
@@ -68,6 +74,6 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route', functi
 }]);
 
 shopApp.controller('ShopController', ['$scope', '$http', function ($scope, $http) {
-	
+	console.log($scope.cart);
 }]);
 

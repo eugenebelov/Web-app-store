@@ -1,11 +1,14 @@
 Shopping cart
 <ul class="products">
-    <li class="shopping-cart product" ng-repeat="product in cart">
-        <a>
+    <li class="shopping-cart" ng-repeat="product in cart">
+    	<p class="product-title">{{product.label}}</p>
+    	<p class="product-price">{{product.price}}</p>
+    	<p class="close">Cancel Order</p>
+        <!-- <a>
             <img src="{{product.thumb}}" alt="" width="150" height="150">
             <h4>{{product.label}}</h4>
         </a>
         <div class="descr">{{product.description}}</div>
-        <span class="price">{{product.price}}</span>
+        <span class="price">{{product.price}}</span> -->
     </li>
 </ul>
