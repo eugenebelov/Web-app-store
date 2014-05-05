@@ -9,6 +9,7 @@
     "angular": "",
     "angular-ui": "",
     "angular-route": "",
+    "angular-bootstrap": "",  
     "normalize.css": "~3.0.1"
   },
   "devDependencies": {}
