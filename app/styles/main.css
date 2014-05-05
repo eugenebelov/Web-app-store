@@ -130,7 +130,7 @@ header .history-nav .icon-angle-right {
 
 #content ul.order-list li.product {
     background-color: #f5f4f7;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 15px;
     padding: 10px;   
 }
 
@@ -206,6 +206,11 @@ header .history-nav .icon-angle-right {
 .order-item {
     line-height: 35px;
     padding-right: 10px;
+}
+
+.order-item input {
+    width: 50px;
+    text-align: center;
 }
 
 .clear {
