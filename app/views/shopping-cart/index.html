@@ -1,14 +1,13 @@
-Shopping cart
-<ul class="products">
-    <li class="shopping-cart" ng-repeat="product in cart">
-    	<p class="product-title">{{product.label}}</p>
-    	<p class="product-price">{{product.price}}</p>
-    	<p class="close">Cancel Order</p>
-        <!-- <a>
-            <img src="{{product.thumb}}" alt="" width="150" height="150">
-            <h4>{{product.label}}</h4>
-        </a>
-        <div class="descr">{{product.description}}</div>
-        <span class="price">{{product.price}}</span> -->
+<h4>Shopping cart</h4>
+<ul class="order-list">
+    <li class="product" ng-repeat="product in cart">
+    	<div class="row order-item">
+	    	<div class="col-md-7 col-xs-7">{{product.label}}</div>
+	    	<div class="col-md-2 col-xs-2 price">{{product.price}}</div>
+	    	<div class="col-md-2 col-xs-2">counter</div>
+	    	<div class="col-md-1 col-xs-1">
+	    		<a class="btn btn-default btn-xs" ng-click="deleteItemFromCart(product.id)">remove</a>
+	    	</div>
+        </div>
     </li>
 </ul>

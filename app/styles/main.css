@@ -69,6 +69,11 @@ header .top-menu li a {
     color: #FFF;
     font-size: 13px; }
 
+header .top-menu .badge {
+    background-color: #FFF;
+    color: #000;
+    font-size: 13px;
+}
 
 .top-menu li, .main-menu li { display:inline-block; }
 
@@ -107,21 +112,26 @@ header .history-nav .icon-angle-right {
     min-height: 250px;
 }
 
-#content ul.products {
+#content ul.products, ul.order-list {
     margin: 0 0 0 -15px !important;
     list-style: none;
 }
 
 #content ul.products li.product {
     width: 270px;
-    background-color: #808000;
     margin: 0 0 30px 15px;
     position: relative;
     text-align: left;
     vertical-align: top;
-    background: #f5f4f7;
+    background-color: #f5f4f7;
     padding: 10px;
     display:inline-block;
+}
+
+#content ul.order-list li.product {
+    background-color: #f5f4f7;
+    margin: 0 0 10px 0;
+    padding: 10px;   
 }
 
 .content-holder ul.products li.product .onsale {
@@ -186,8 +196,6 @@ header .history-nav .icon-angle-right {
 .content-holder li.product .price {
     color: #3c3c3c;
     font: 600 22px/34px 'Ubuntu';
-    display: block;    
-    float: left;
 }
 
 .content-holder li.product .price:before {
@@ -195,13 +203,9 @@ header .history-nav .icon-angle-right {
     font-size: 18px;
 }
 
-.content-holder li.product a.btn {
-    display: block;
-    float: right;
-}
-
-.content-holder .products li.shopping-cart {
-    
+.order-item {
+    line-height: 35px;
+    padding-right: 10px;
 }
 
 .clear {

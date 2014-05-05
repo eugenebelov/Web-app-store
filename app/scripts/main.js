@@ -67,13 +67,21 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route', functi
 		$scope.cart.push($scope.products[id]);
 	}
 
-	$scope.showShoppingCart = function(id)
-	{
-		console.log("showShoppingCart");
-	}
 }]);
 
 shopApp.controller('ShopController', ['$scope', '$http', function ($scope, $http) {
-	console.log($scope.cart);
+	
+	$scope.deleteItemFromCart = function(id)
+	{
+		angular.forEach($scope.cart, function(value, key) {
+			removeItem(value, key, id);
+		});
+	}
+
+	function removeItem(value, index, removedId) {
+		if(value.id == removedId) {
+			$scope.cart.splice(index, 1);
+		}
+	}
 }]);
 

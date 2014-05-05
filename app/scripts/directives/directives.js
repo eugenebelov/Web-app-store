@@ -24,7 +24,7 @@ angular.module('directives.product', [])
       '</a>'+
       '<div class="descr">{{itemData.description}}</div>'+
       '<span class="price">{{itemData.price}}</span>'+
-      '<a id="buy{{itemData.id}}" class="btn btn-danger" ng-click="buyProduct(itemData.id)">Купить</a>'
+      '<a id="buy{{itemData.id}}" class="btn btn-danger pull-right" ng-click="buyProduct(itemData.id)">Купить</a>'
   };
 })
 
