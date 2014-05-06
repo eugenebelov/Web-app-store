@@ -66,7 +66,23 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 
 		$scope.addToCart = function(id)
 		{
-			$scope.cart.push($scope.products[id]);
+			angular.forEach($scope.products, function(value, key) {
+				if(id === value.id) {
+					for (var i = $scope.cart.length - 1; i >= 0; i--) {
+						if($scope.cart[i].id == id) {
+							console.log("case 1", $scope.cart[i].id, id);
+							// console.log("case 1", $scope.cart[i].id);
+							// $scope.cart[i].quantity++;
+							break;
+						} else {
+							console.log("case 2", $scope.cart[i].id, id);
+							// console.log("case 2");
+						// 	$scope.cart.push(value);
+							break;
+						}
+					};
+				}
+			});
 		}
 }]);
 
@@ -99,16 +115,9 @@ shopApp.controller('ShopController', ['$scope', '$http', '$modal',
 
 		$scope.deleteItemFromCart = function(id)
 		{
-			angular.forEach($scope.cart, function(value, key) {
-				removeItem(value, key, id);
-			});
+			$scope.cart.splice(id, 1);
 		}
 
-		function removeItem(value, index, removedId) {
-			if(value.id == removedId) {
-				$scope.cart.splice(index, 1);
-			}
-		}
 }]);
 
 shopApp.controller('ModalInstanceCtrl',

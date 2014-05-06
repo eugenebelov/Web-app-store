@@ -27,19 +27,3 @@ angular.module('directives.product', [])
       '<a id="buy{{itemData.id}}" class="btn btn-danger pull-right" ng-click="buyProduct(itemData.id)">Купить</a>'
   };
 })
-
-.directive('shoppingCartView', function() {    
-  return {
-    restrict: 'E',
-    controller: function($scope, $element, $attrs) {
-    	$scope.buyProduct = function (id) {
-    		$scope.moveToCart(id);
-    	}
-    },
-    link: function (scope, iElement, iAttrs) {
-
-    },
-    template:
-      '<div>cart item view</div>'
-  };
-});

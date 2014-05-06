@@ -5,10 +5,10 @@
 	    	<div class="col-md-7 col-xs-7">{{product.label}}</div>
 	    	<div class="col-md-2 col-xs-2 price">{{product.price}}</div>
 	    	<div class="col-md-2 col-xs-2">
-                <input type="text" ng-value="1" />
+                <input type="text" ng-value="product.quantity" />
             </div>
 	    	<div class="col-md-1 col-xs-1">
-	    		<button type="button" class="btn btn-danger btn-xs" ng-click="deleteItemFromCart(product.id)">remove</button>
+	    		<button type="button" class="btn btn-danger btn-xs" ng-click="deleteItemFromCart($index)">remove</button>
 	    	</div>
         </div>
     </li>
