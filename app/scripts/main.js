@@ -39,8 +39,8 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 	function ($scope, $http, $route) 
 	{
 		$scope.totalItems = 64;
-  	$scope.currentPage = 4;
-  	$scope.cart = [];
+  		$scope.currentPage = 4;
+  		$scope.cart = [];
 
 		$http.get('scripts/data/menus.json').success(function(data) 
 		{
@@ -66,23 +66,35 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 
 		$scope.addToCart = function(id)
 		{
-			angular.forEach($scope.products, function(value, key) {
-				if(id === value.id) {
-					for (var i = $scope.cart.length - 1; i >= 0; i--) {
-						if($scope.cart[i].id == id) {
-							console.log("case 1", $scope.cart[i].id, id);
-							// console.log("case 1", $scope.cart[i].id);
-							// $scope.cart[i].quantity++;
+			for (var i = 0; i < $scope.products.length; i++)  
+			{
+				if($scope.products[i].id === id) 
+				{
+					var hasItemInCart = false;
+					var cartItem = null;
+					for (var j = 0; j < $scope.cart.length; j++) 
+					{
+						if($scope.cart[j].id === id) 
+						{
+							hasItemInCart = true;
+							cartItem = $scope.cart[j];
 							break;
-						} else {
-							console.log("case 2", $scope.cart[i].id, id);
-							// console.log("case 2");
-						// 	$scope.cart.push(value);
-							break;
+						} 
+						else {
+							hasItemInCart = false;
 						}
 					};
+
+					if(hasItemInCart) 
+					{
+						 cartItem.quantity++
+					} 
+					else {
+						$scope.products[i].quantity = 1;
+						$scope.cart.push($scope.products[i]);
+					}
 				}
-			});
+			};
 		}
 }]);
 
