@@ -9,7 +9,8 @@
     "angular": "",
     "angular-ui": "",
     "angular-route": "",
-    "angular-bootstrap": "",  
+    "angular-bootstrap": "", 
+    "underscore": "", 
     "normalize.css": "~3.0.1"
   },
   "devDependencies": {}
