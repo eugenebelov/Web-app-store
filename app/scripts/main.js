@@ -1,6 +1,8 @@
 'use strict';
 
-var shopApp = angular.module('shopApp', ['directives.product', 'ngRoute', 'ui.bootstrap']);
+var shopApp = angular.module('shopApp', ['directives.product', 'ngRoute', 
+	'ui.bootstrap.modal',
+	'ui.bootstrap.pagination']);
 
 shopApp.config(['$routeProvider', '$locationProvider',
 	function($routes, $location) {
@@ -12,10 +14,10 @@ shopApp.config(['$routeProvider', '$locationProvider',
 			templateUrl: '/views/main/',
 			pageindex: 0
 		})
-			.when('/about/', {
+		.when('/about/', {
 				templateUrl: '/views/about/',
 				pageindex: 1
-			})
+		})
 		.when('/shop/', {
 			templateUrl: '/views/shop/',
 			controller: 'ShopController',
@@ -40,7 +42,7 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 	{
 		$scope.totalItems = 64;
   		$scope.currentPage = 4;
-  		$scope.cart = [];
+		$scope.cart = [];
 
 		$http.get('scripts/data/menus.json').success(function(data) 
 		{
@@ -63,7 +65,11 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 		{
 			$scope.historyTitle = label;
 		}
+}]);
 
+shopApp.controller('ShopController', ['$scope', '$http', '$modal', 
+	function ($scope, $http, $modal) 
+	{
 		$scope.addToCart = function(id)
 		{
 			for (var i = 0; i < $scope.products.length; i++)  
@@ -96,33 +102,23 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 				}
 			};
 		}
-}]);
-
-shopApp.controller('ShopController', ['$scope', '$http', '$modal', 
-	function ($scope, $http, $modal) 
-	{
-		$scope.items = ['item1', 'item2', 'item3'];
 
 		$scope.sendOrder = function() 
 		{
-			console.log("open modal dialog");
-
 			var modalInstance = $modal.open({
-	      templateUrl: 'views/modals/finishCheckoutPopup.html',
-	      controller: 'ModalInstanceCtrl',
-	      size: '',
-	      resolve: {
-	        items: function () {
-	          return $scope.items;
-	        }
-	      }
-	    });
+		      	templateUrl: 'views/modals/finishCheckoutPopup.html',
+		      	controller: 'ModalInstanceCtrl',
+		      	size: '',
+		      	resolve: {
+		        items: function () {
+		          // return $scope.items;
+		        }
+		      }
+		    });
 
-	    modalInstance.result.then(function (selectedItem) {
-	      $scope.selected = selectedItem;
-	    }, function () {
-	      
-	    });
+		    modalInstance.result.then(function (selectedItem) {
+		      $scope.selected = selectedItem;
+		  	});
 		}
 
 		$scope.deleteItemFromCart = function(id)
@@ -135,13 +131,13 @@ shopApp.controller('ShopController', ['$scope', '$http', '$modal',
 shopApp.controller('ModalInstanceCtrl',
 	function ($scope, $modalInstance, items) 
 	{
-	  $scope.items = items;
+	  // $scope.items = items;
 	  $scope.selected = {
-	    item: $scope.items[0]
+	    // item: $scope.items[0]
 	  };
 
 	  $scope.ok = function () {
-	    $modalInstance.close($scope.selected.item);
+	    $modalInstance.close(); //$scope.selected.item
 	  };
 
 	  $scope.cancel = function () {
