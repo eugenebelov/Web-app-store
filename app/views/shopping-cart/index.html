@@ -5,15 +5,27 @@
 	    	<div class="col-md-7 col-xs-7">{{product.label}}</div>
 	    	<div class="col-md-2 col-xs-2 price">{{product.price}}</div>
 	    	<div class="col-md-2 col-xs-2">
-                <input type="text" ng-value="product.quantity" />
+                <input type="number" class="form-control" 
+                		maxlength="2"
+                		min="1" max="99"
+                		ng-pattern="/0-9/"
+                		ng-value="product.quantity" />
             </div>
 	    	<div class="col-md-1 col-xs-1">
-	    		<button type="button" class="btn btn-danger btn-xs" ng-click="deleteItemFromCart($index)">remove</button>
+	    		<button type="button" class="btn btn-danger btn-xs" ng-click="deleteItemFromCart($index)">удалить</button>
 	    	</div>
         </div>
     </li>
 </ul>
-<button type="button" class="btn btn-success pull-right" ng-click="sendOrder()">Checkout</button>
+<ul class="order-list">
+	<li class="product">
+		<div class="text-right">
+			Всего на сумму:
+		</div>
+		<div class="price text-right">{{totalCost()}}</div>
+	</li>
+</ul>
+<button type="button" class="btn btn-primary pull-right" ng-click="sendOrder()">Заказать</button>
 <div>&nbsp;</div>
 <div>&nbsp;</div>
 <div>&nbsp;</div>

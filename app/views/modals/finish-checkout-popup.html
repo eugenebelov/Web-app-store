@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3 class="modal-title">Оформить заказ?</h3>
+</div>
+<div class="modal-body">
+    <form>
+        <!-- <fieldset> -->
+            <div class="form-group">
+                <p><input type="text" class="form-control" placeholder="Ваше полное имя (Ф.И.О.)" /></p>
+                <p><input type="text" class="form-control" placeholder="Почта (email)" /></p>
+                <p><input type="text" class="form-control" placeholder="Контактные телефоны" /></p>
+                <p><textarea type="text" class="form-control" placeholder="Адресс доставки"></textarea></p>
+            </div>
+        <!-- </fieldset> -->
+    </form>    
+</div>
+<div class="modal-footer">
+    <div class="form-group">
+        <label for="ok-btn" class="control-label text-left col-sm-9">Ваш заказ отправится к нам на почту, и мы с Вами свяжемся в ближайшее время.</label>
+        <div id="ok-btn" class="col-sm-3">
+            <button class="btn btn-success" ng-click="ok()">Да</button>
+            <button class="btn btn-danger" ng-click="cancel()">Нет</button>
+        </div>        
+    </div>    
+</div>

@@ -1,8 +1,6 @@
 {
 	"topMenu": [
-		{"label":"регистрация"},
-		{"label":"вход"},
-		{"label":"my account"}
+		{"label":"вход"}
 	],
 	
 	"mainMenu": [
