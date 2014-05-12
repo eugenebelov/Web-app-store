@@ -1,8 +1,7 @@
 'use strict';
 
 var shopApp = angular.module('shopApp', ['directives.product', 'ngRoute', 
-	'ui.bootstrap.modal',
-	'ui.bootstrap.pagination']);
+	'ui.bootstrap']);
 
 shopApp.config(['$routeProvider', '$locationProvider',
 	function($routes, $location) {
@@ -70,6 +69,17 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 shopApp.controller('ShopController', ['$scope', '$http', '$modal', 
 	function ($scope, $http, $modal) 
 	{
+		$scope.totalCost = function() 
+		{
+			var totalPrice = 0;
+			for (var i = 0; i < $scope.cart.length; i++) 
+			{
+				totalPrice += $scope.cart[i].quantity * $scope.cart[i].price;
+			};
+
+			return totalPrice;
+		}
+
 		$scope.addToCart = function(id)
 		{
 			for (var i = 0; i < $scope.products.length; i++)  
@@ -106,7 +116,7 @@ shopApp.controller('ShopController', ['$scope', '$http', '$modal',
 		$scope.sendOrder = function() 
 		{
 			var modalInstance = $modal.open({
-		      	templateUrl: 'views/modals/finishCheckoutPopup.html',
+		      	templateUrl: 'views/modals/finish-checkout-popup.html',
 		      	controller: 'ModalInstanceCtrl',
 		      	size: '',
 		      	resolve: {
