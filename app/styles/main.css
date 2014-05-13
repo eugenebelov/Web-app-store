@@ -16,6 +16,10 @@ ul {
     margin: 0;
     padding: 0; }
 
+.font-size-12 {
+    font-size: 12px;
+}
+
 .footer .container { color: #FFF; }
 
 .main-menu {
@@ -198,9 +202,9 @@ header .history-nav .icon-angle-right {
     font: 600 22px/34px 'Ubuntu';
 }
 
-.content-holder li.product .price:before {
-    content: "$";
-    font-size: 18px;
+.content-holder li.product .price:after {
+    content: " грн.";
+    font-size: 14px;
 }
 
 .order-item {

@@ -40,8 +40,9 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 	function ($scope, $http, $route) 
 	{
 		$scope.totalItems = 64;
-  		$scope.currentPage = 4;
+  	$scope.currentPage = 4;
 		$scope.cart = [];
+		$scope.products = [];
 
 		$http.get('scripts/data/menus.json').success(function(data) 
 		{
@@ -69,6 +70,21 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 shopApp.controller('ShopController', ['$scope', '$http', '$modal', 
 	function ($scope, $http, $modal) 
 	{
+		$scope.getProductFromCartById = function(id_product)
+		{
+			var _products = null;
+			for (var j = 0; j < $scope.cart.length; j++) 
+			{
+				if($scope.cart[j].id === id_product) 
+				{
+					_products = $scope.cart[j];
+					break; 
+				}
+			}
+
+			return _products;
+		}
+
 		$scope.totalCost = function() 
 		{
 			var totalPrice = 0;
@@ -78,6 +94,12 @@ shopApp.controller('ShopController', ['$scope', '$http', '$modal',
 			};
 
 			return totalPrice;
+		}
+
+		$scope.changeQuantityEvent = function(prodId)
+		{
+			var _product = $scope.getProductFromCartById(prodId);
+			_product.quantity = this.product.quantity;
 		}
 
 		$scope.addToCart = function(id)
