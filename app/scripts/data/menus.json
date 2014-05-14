@@ -5,7 +5,6 @@
 	
 	"mainMenu": [
 		{"label":"главная", "url":"!/"},
-		{"label":"о нас", "url":"!/about/"},
 		{"label":"магазин", "url":"!/shop/"},
 		{"label":"контакты", "url":"!/contact/"}
 	]

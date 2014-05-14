@@ -132,10 +132,18 @@ header .history-nav .icon-angle-right {
     display:inline-block;
 }
 
+#content ul.products li.product:hover {
+    background-color: #d9dbdc;
+}
+
 #content ul.order-list li.product {
     background-color: #f5f4f7;
     margin: 0 0 5px 15px;
     padding: 10px;   
+}
+
+#content ul.order-list li.product:hover {
+    background-color: #d9dbdc;
 }
 
 .content-holder ul.products li.product .onsale {
