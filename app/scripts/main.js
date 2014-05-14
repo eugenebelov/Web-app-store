@@ -10,24 +10,24 @@ shopApp.config(['$routeProvider', '$locationProvider',
 
 		$routes
 			.when('/', {
-			templateUrl: '/views/main/',
+			templateUrl: 'views/main/',
 			pageindex: 0
 		})
 		.when('/about/', {
-				templateUrl: '/views/about/',
+				templateUrl: 'views/about/',
 				pageindex: 1
 		})
 		.when('/shop/', {
-			templateUrl: '/views/shop/',
+			templateUrl: 'views/shop/',
 			controller: 'ShopController',
 			pageindex: 2
 		})
 		.when('/contact/', {
-			templateUrl: '/views/contacts/',
+			templateUrl: 'views/contacts/',
 			pageindex: 3
 		})
 		.when('/view-cart/', {
-			templateUrl: '/views/shopping-cart/',
+			templateUrl: 'views/shopping-cart/',
 			controller: 'ShopController',
 			pageindex: 3
 		})
