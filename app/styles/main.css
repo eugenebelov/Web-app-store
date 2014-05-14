@@ -106,7 +106,7 @@ header .history-nav .icon-angle-right {
 
 #content, #sidebar {
     padding: 20px 0 0 0 !important;
-    margin: 25px 0 0 0 !important;
+    margin: 25px 0 25px 0 !important;
 }
 
 #sidebar .widgets {
