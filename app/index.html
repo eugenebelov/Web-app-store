@@ -55,7 +55,7 @@
             <nav class="main-menu">
                 <div class="container">                
                     <ul>
-                        <li ng-repeat="menu in mainMenu" ng-click="changeHistoryTitle(menu.label)"><a href="#{{menu.url}}" class="main-menu-item">{{menu.label}}</a></li>
+                        <li ng-repeat="menu in mainMenu"><a ng-click="changeHistoryTitle(menu.label)" href="#{{menu.url}}" class="main-menu-item">{{menu.label}}</a></li>
                     </ul>
                 </div>
             </nav>
