@@ -8,10 +8,9 @@
                 <input class="form-control" 
                 		maxlength="2"
                 		min="1" max="99"
-                		ng-pattern="/^[0-9]$/"
                         ng-change="changeQuantityEvent(product.id)"
                         ng-value="product.quantity"
-                        ng-model="product.quantity"/>
+                        ng-model="product.quantity" number/>
             </div>
 	    	<div class="col-md-1 col-xs-1">
 	    		<button type="button" class="btn btn-danger btn-xs" ng-click="deleteItemFromCart($index)">удалить</button>
