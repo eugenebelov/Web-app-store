@@ -37,7 +37,7 @@ shopApp.config(['$routeProvider', '$locationProvider',
 			pageindex: 5
 		})
 		.otherwise({
-			redirectTo: '/!#'
+			redirectTo: '/'
 		});
 }]);
 
@@ -71,8 +71,7 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 }]);
 
 shopApp.controller('ShopController', ['$scope', '$http', '$modal', '$route', '$location',
-	function ($scope, $http, $modal, $route, $location) 
-	{
+	function ($scope, $http, $modal, $route, $location) {
 		$scope.totalItems = 12;
 		$scope.itemsPerPage = 4;
   	$scope.currentPage = 1;
@@ -82,19 +81,14 @@ shopApp.controller('ShopController', ['$scope', '$http', '$modal', '$route', '$l
   		$scope.currentPage = $route.current.params.pageid;
 
   		if($scope.currentPage == undefined) {
-  			$scope.products = $scope.productsModel.splice(0, 4);
+  			$scope.products = $scope.productsModel.slice(0, $scope.itemsPerPage);
   		} else {
   			$scope.products = $scope.productsModel.slice(($scope.currentPage - 1) * $scope.itemsPerPage, (($scope.currentPage - 1) * $scope.itemsPerPage) + $scope.itemsPerPage);
   		}
-
-  		console.log(($scope.currentPage - 1) * 4)
   	});
 
   	$scope.pageChanged = function() {
 	    $location.url("/shop/page/" + $scope.currentPage);
-
-	    console.log('Page changed to: ' + $scope.currentPage);
-	    
 	  };
 
 		$scope.getProductFromCartById = function(id_product) {
