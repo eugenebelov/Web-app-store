@@ -45,7 +45,7 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 	function ($scope, $http, $route) 
 	{
 		$scope.cart = [];
-		$scope.products = [];
+		$scope.productsModel = [];
 
 		$http.get('scripts/data/menus.json').success(function(data) 
 		{
@@ -56,7 +56,7 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 
 		$http.get('scripts/data/products.json').success(function(data) 
 		{
-			$scope.products = data.products;
+			$scope.productsModel = data.products;
 		});
 
 		$http.get('scripts/data/products-in-cart.json').success(function(data) 
@@ -73,27 +73,34 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 shopApp.controller('ShopController', ['$scope', '$http', '$modal', '$route', '$location',
 	function ($scope, $http, $modal, $route, $location) 
 	{
-		$scope.totalItems = 10;
-		$scope.itemsPerPage = 2;
+		$scope.totalItems = 12;
+		$scope.itemsPerPage = 4;
   	$scope.currentPage = 1;
+  	$scope.products = [];
 
   	$scope.$on('$routeChangeSuccess', function(event) {
   		$scope.currentPage = $route.current.params.pageid;
+
+  		if($scope.currentPage == undefined) {
+  			$scope.products = $scope.productsModel.splice(0, 4);
+  		} else {
+  			$scope.products = $scope.productsModel.slice(($scope.currentPage - 1) * $scope.itemsPerPage, (($scope.currentPage - 1) * $scope.itemsPerPage) + $scope.itemsPerPage);
+  		}
+
+  		console.log(($scope.currentPage - 1) * 4)
   	});
 
   	$scope.pageChanged = function() {
 	    $location.url("/shop/page/" + $scope.currentPage);
-	    
+
 	    console.log('Page changed to: ' + $scope.currentPage);
+	    
 	  };
 
-		$scope.getProductFromCartById = function(id_product)
-		{
+		$scope.getProductFromCartById = function(id_product) {
 			var _products = null;
-			for (var j = 0; j < $scope.cart.length; j++) 
-			{
-				if($scope.cart[j].id === id_product) 
-				{
+			for (var j = 0; j < $scope.cart.length; j++) {
+				if($scope.cart[j].id === id_product) {
 					_products = $scope.cart[j];
 					break; 
 				}
@@ -102,46 +109,36 @@ shopApp.controller('ShopController', ['$scope', '$http', '$modal', '$route', '$l
 			return _products;
 		}
 
-		$scope.totalCost = function() 
-		{
+		$scope.totalCost = function() {
 			var totalPrice = 0;
-			for (var i = 0; i < $scope.cart.length; i++) 
-			{
+			for (var i = 0; i < $scope.cart.length; i++) {
 				totalPrice += $scope.cart[i].quantity * $scope.cart[i].price;
 			};
 
 			return totalPrice;
 		}
 
-		$scope.changeQuantityEvent = function(prodId)
-		{
+		$scope.changeQuantityEvent = function(prodId) {
 			var _product = $scope.getProductFromCartById(prodId);
 			_product.quantity = this.product.quantity;
 		}
 
-		$scope.addToCart = function(id)
-		{
-			for (var i = 0; i < $scope.products.length; i++)  
-			{
-				if($scope.products[i].id === id) 
-				{
+		$scope.addToCart = function(id) {
+			for (var i = 0; i < $scope.products.length; i++) {
+				if($scope.products[i].id === id) {
 					var hasItemInCart = false;
 					var cartItem = null;
-					for (var j = 0; j < $scope.cart.length; j++) 
-					{
-						if($scope.cart[j].id === id) 
-						{
+					for (var j = 0; j < $scope.cart.length; j++) {
+						if($scope.cart[j].id === id) {
 							hasItemInCart = true;
 							cartItem = $scope.cart[j];
 							break;
-						} 
-						else {
+						} else {
 							hasItemInCart = false;
 						}
 					};
 
-					if(hasItemInCart) 
-					{
+					if(hasItemInCart) {
 						 cartItem.quantity++
 					} 
 					else {
@@ -152,8 +149,7 @@ shopApp.controller('ShopController', ['$scope', '$http', '$modal', '$route', '$l
 			};
 		}
 
-		$scope.sendOrder = function() 
-		{
+		$scope.sendOrder = function() {
 			var modalInstance = $modal.open({
 		      	templateUrl: 'views/modals/finish-checkout-popup.html',
 		      	controller: 'ModalInstanceCtrl',
@@ -170,8 +166,7 @@ shopApp.controller('ShopController', ['$scope', '$http', '$modal', '$route', '$l
 		  	});
 		}
 
-		$scope.deleteItemFromCart = function(id)
-		{
+		$scope.deleteItemFromCart = function(id) {
 			$scope.cart.splice(id, 1);
 		}
 

@@ -65,6 +65,72 @@
 				"isSale":"false",
 				"quantity":"12"
 			}
+		},
+		{
+			"id":"10006",
+			"label":"Ololo One Laundry Green Graphic T-Shirt",
+			"description":"Short desrc goes here",
+			"price":"10.99",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"sale": {
+				"isSale":"false",
+				"quantity":"12"
+			}
+		},
+		{
+			"id":"10007",
+			"label":"Ololo Two Laundry Green Graphic T-Shirt",
+			"description":"Short desrc goes here",
+			"price":"10.99",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"sale": {
+				"isSale":"true",
+				"quantity":"6"
+			}
+		},
+		{
+			"id":"10008",
+			"label":"Ololo Three Laundry Green Graphic T-Shirt",
+			"description":"Short desrc goes here",
+			"price":"310.99",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"sale": {
+				"isSale":"true",
+				"quantity":"3"
+			}
+		},
+		{
+			"id":"10009",
+			"label":"Ololo Four Laundry Green Graphic T-Shirt",
+			"description":"Short desrc goes here",
+			"price":"410.99",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"sale": {
+				"isSale":"false",
+				"quantity":"12"
+			}
+		},
+		{
+			"id":"10010",
+			"label":"Ololo Five Laundry Green Graphic T-Shirt",
+			"description":"Short desrc goes here",
+			"price":"411.99",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"sale": {
+				"isSale":"false",
+				"quantity":"9"
+			}
+		},
+		{
+			"id":"10011",
+			"label":"Ololo Six Laundry Green Graphic T-Shirt",
+			"description":"Short desrc goes here",
+			"price":"110.99",
+			"thumb":"assets/classic_laundry_green_graphic_t-shirt_1-150x150.png",
+			"sale": {
+				"isSale":"true",
+				"quantity":"12"
+			}
 		}
 	]
 }
