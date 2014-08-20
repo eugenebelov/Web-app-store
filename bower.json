@@ -8,7 +8,7 @@
     "jquery": "~1.11.0",
     "angular": "",
     "angular-ui": "",
-    "angular-route": "",
+    "angular-ui-router": "",
     "angular-bootstrap": "", 
     "underscore": "", 
     "normalize.css": "~3.0.1"

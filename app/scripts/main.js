@@ -22,14 +22,19 @@ shopApp.config(['$routeProvider', '$locationProvider',
 			controller: 'ShopController',
 			pageindex: 2
 		})
+		.when('/shop/page/:pageid', {
+			templateUrl: 'views/shop/',
+			controller: 'ShopController',
+			pageindex: 3
+		})
 		.when('/contact/', {
 			templateUrl: 'views/contacts/',
-			pageindex: 3
+			pageindex: 4
 		})
 		.when('/view-cart/', {
 			templateUrl: 'views/shopping-cart/',
 			controller: 'ShopController',
-			pageindex: 3
+			pageindex: 5
 		})
 		.otherwise({
 			redirectTo: '/!#'
@@ -39,8 +44,6 @@ shopApp.config(['$routeProvider', '$locationProvider',
 shopApp.controller('ApplicationController', ['$scope', '$http', '$route', 
 	function ($scope, $http, $route) 
 	{
-		$scope.totalItems = 64;
-  	$scope.currentPage = 4;
 		$scope.cart = [];
 		$scope.products = [];
 
@@ -67,9 +70,23 @@ shopApp.controller('ApplicationController', ['$scope', '$http', '$route',
 		}
 }]);
 
-shopApp.controller('ShopController', ['$scope', '$http', '$modal', 
-	function ($scope, $http, $modal) 
+shopApp.controller('ShopController', ['$scope', '$http', '$modal', '$route', '$location',
+	function ($scope, $http, $modal, $route, $location) 
 	{
+		$scope.totalItems = 10;
+		$scope.itemsPerPage = 2;
+  	$scope.currentPage = 1;
+
+  	$scope.$on('$routeChangeSuccess', function(event) {
+  		$scope.currentPage = $route.current.params.pageid;
+  	});
+
+  	$scope.pageChanged = function() {
+	    $location.url("/shop/page/" + $scope.currentPage);
+	    
+	    console.log('Page changed to: ' + $scope.currentPage);
+	  };
+
 		$scope.getProductFromCartById = function(id_product)
 		{
 			var _products = null;
