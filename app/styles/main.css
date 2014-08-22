@@ -118,15 +118,14 @@ header .history-nav .icon-angle-right {
 
 .breadcrumb { text-transform:lowercase; }
 
-#content, #sidebar {
+#content {
     padding: 20px 0 0 0 !important;
     margin: 25px 0 25px 0 !important;
 }
 
-#sidebar .widgets {
+#sidebar {
     background-color: #f5f5f5;
-    padding: 10px 0 10px 10px;
-    margin-left: 5px;
+    padding: 10px !important;
     min-height: 250px;
 }
 

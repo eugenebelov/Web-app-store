@@ -1,7 +1,10 @@
 {
   "name": "web-app-store",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "~1.0.2",
+    "mongoskin": "~1.4.1"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.5.0",

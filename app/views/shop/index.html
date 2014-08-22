@@ -1,11 +1,26 @@
-<ul class="products">
-    <li class="product" ng-repeat="item in products">
-        <product item-data='item' move-to-cart="addToCart(item.id)"/>
-    </li>
-</ul>
+<aside class="col-md-2 col-xs-2" id="sidebar">
+    <div class="widgets">
+        <ul>
+        	<li><a href="#">Category</a></li>
+        	<li><a href="#">Category</a></li>
+        	<li><a href="#">Category</a></li>
+        	<li><a href="#">Category</a></li>
+        	<li><a href="#">Category</a></li>
+        	<li><a href="#">Category</a></li>
+        </ul>
+    </div>
+</aside>
 
-<pagination direction-links="false" 
-			total-items="totalItems" 
-			items-per-page="itemsPerPage"
-			ng-change="pageChanged()"
-			ng-model="currentPage"></pagination>
+<div class="col-md-10 col-xs-10">
+	<ul class="products">
+	    <li class="product" ng-repeat="item in products">
+	        <product item-data='item' move-to-cart="addToCart(item.id)"/>
+	    </li>
+	</ul>
+
+	<pagination direction-links="false" 
+				total-items="totalItems" 
+				items-per-page="itemsPerPage"
+				ng-change="pageChanged()"
+				ng-model="currentPage"></pagination>
+</div>
